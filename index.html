@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1f4e79">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <title>Os meus números</title>
+</head>
+<body>
+  <section id="lock" hidden>
+    <form id="lockForm" autocomplete="off">
+      <h1>🔐 Os meus números</h1>
+      <p id="lockMsg"></p>
+      <input id="pass" type="password" placeholder="Palavra-passe" required minlength="6" autocomplete="current-password">
+      <input id="pass2" type="password" placeholder="Repetir palavra-passe" minlength="6" hidden>
+      <button class="primary">Entrar</button>
+      <p id="lockErr" class="err"></p>
+    </form>
+  </section>
+
+  <main id="app" hidden>
+    <header>
+      <h1>Os meus números</h1>
+      <div>
+        <button id="btnExport" title="Exportar cópia">⬇️</button>
+        <button id="btnImport" title="Importar cópia">⬆️</button>
+        <button id="btnLock" title="Bloquear">🔒</button>
+      </div>
+    </header>
+    <div class="filters">
+      <input id="search" type="search" placeholder="Pesquisar...">
+      <select id="filterOwner"></select>
+    </div>
+    <ul id="list"></ul>
+    <p id="empty" hidden>Ainda não tens registos. Toca em “+” para adicionar.</p>
+    <button id="fab" class="fab" aria-label="Adicionar">+</button>
+    <input id="importFile" type="file" accept="application/json" hidden>
+  </main>
+
+  <dialog id="dlg">
+    <form id="form" method="dialog">
+      <h2 id="dlgTitle">Novo registo</h2>
+      <label>Pessoa
+        <input id="fOwner" list="owners" required maxlength="40" placeholder="Ex.: PG">
+        <datalist id="owners"></datalist>
+      </label>
+      <label>Tipo
+        <select id="fType">
+          <option>CC</option>
+          <option>NIF</option>
+          <option>Segurança Social</option>
+          <option>Utente SNS</option>
+          <option>Seguro de saúde</option>
+          <option>Outro</option>
+        </select>
+      </label>
+      <label id="lblName" hidden>Nome do documento
+        <input id="fLabel" maxlength="40" placeholder="Ex.: Passaporte">
+      </label>
+      <label>Número
+        <input id="fNumber" required maxlength="40" autocomplete="off">
+      </label>
+      <label>Data de validade (opcional)
+        <input id="fExpiry" type="date">
+      </label>
+      <label>Notas (opcional)
+        <input id="fNotes" maxlength="120">
+      </label>
+      <div class="row">
+        <button type="button" id="btnCancel">Cancelar</button>
+        <button class="primary" value="ok">Guardar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
