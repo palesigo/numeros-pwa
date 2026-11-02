@@ -2,6 +2,8 @@
 
 PWA offline para guardar números de identificação (CC, NIF, Segurança Social, Utente SNS, seguros, outros) por pessoa, com data de validade opcional.
 
+App: https://palesigo.github.io/numeros-pwa/
+
 - Sem servidor: os dados ficam no `localStorage`, cifrados com AES-GCM (chave derivada por PBKDF2 da palavra-passe mestra).
 - Sem recuperação de palavra-passe. Exporta backups regularmente (botão ⬇️).
 - Sem dependências nem build.
